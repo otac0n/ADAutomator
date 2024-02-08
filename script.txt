@@ -22,6 +22,10 @@ IF TT < TOTAL TT {
 	}
 	ETERNITY RESPEC
 }
+
+// Skip Ahead if Time Dilation is already Unlocked
+IF TP <= 0 {
+
 // Initial Farming
 WHILE TOTAL TT < 115 {
 	AUTO ETERNITY 50 x highest
@@ -422,6 +426,7 @@ WHILE TOTAL TT < 6942 {
 	ETERNITY RESPEC
 	AUTO ETERNITY OFF
 }
+
 // EC12 #1-#5
 WHILE EC12 COMPLETIONS < 5 {
 	STUDIES PURCHASE strat_c12
@@ -465,7 +470,10 @@ WHILE EC11 COMPLETIONS < 5 {
   	ETERNITY RESPEC
 }
 
+}
+
 // Update Expected State
+AUTO INFINITY OFF
 STUDIES NOWAIT PURCHASE strat_a
 
 // Find limit of eternity
