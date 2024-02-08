@@ -12,8 +12,9 @@ var (table, script) = (contents[0..splitAt], contents[(splitAt + 2)..]);
 var m = RegexOptions.Multiline;
 script = Regex.Replace(script, @"[ \t]*(//|#)[^\r\n]+", ""); // Remove comments.
 script = Regex.Replace(script, @"[ \t]+", " "); // Collapse whitespace.
-script = Regex.Replace(script, "^[ \t]+|[ \t]+$", "", m); // Remove leading/trailing whitespace.
-script = Regex.Replace(script, "\n+", "\n").Trim(); // Remove blank lines.
+script = Regex.Replace(script, @"^[ \t]+|[ \t]+$", "", m); // Remove leading/trailing whitespace.
+script = Regex.Replace(script, @"\n+", "\n").Trim(); // Remove blank lines.
+script = Regex.Replace(script, @"[ \t]*(\<=?|\>=?|==|{|})[ \t]*", "$1").Trim(); // Remove blank lines.
 
 contents = $"{table}\n\n{script}";
 File.WriteAllText(outFile, contents);
