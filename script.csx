@@ -15,6 +15,7 @@ script = Regex.Replace(script, @"[ \t]+", " "); // Collapse whitespace.
 script = Regex.Replace(script, @"^[ \t]+|[ \t]+$", "", m); // Remove leading/trailing whitespace.
 script = Regex.Replace(script, @"\n+", "\n").Trim(); // Remove blank lines.
 script = Regex.Replace(script, @"[ \t]*(\<=?|\>=?|==|{|})[ \t]*", "$1").Trim(); // Remove blank lines.
+script = Regex.Replace(script, @"(?<=\d[ \t]+)(?:sec(?:onds?)?)", "s").Trim(); // Simplify units.
 
 contents = $"{table}\n\n{script}";
 File.WriteAllText(outFile, contents);
