@@ -14,7 +14,7 @@ strat_dilate: 11-62,infinity,111,active,151-214,antimatter,222,223,225,228,232,2
 // Expected Automator State
 AUTO ETERNITY OFF
 AUTO INFINITY 1e20 x highest
-BLACK HOLE OFF
+BLACK HOLE ON
 // Expected Studies State
 IF TT < TOTAL TT {
 	IF PENDING EP < 1 {
@@ -615,8 +615,6 @@ WHILE EP < 1e4000 {
 	PAUSE 10 sec
 	ETERNITY
 }
-
-BLACK HOLE ON
 
 // Find limit of dilation
 PAUSE 15 sec
