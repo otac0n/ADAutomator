@@ -611,10 +611,9 @@ AUTO INFINITY OFF
 STUDIES NOWAIT PURCHASE strat_a
 
 // Find limit of eternity
-WHILE EP < 1e4000 {
-	PAUSE 10 sec
-	ETERNITY
-}
+AUTO ETERNITY 1e100 x highest
+WAIT EP > 1e4000
+AUTO ETERNITY OFF
 
 // Find limit of dilation
 PAUSE 15 sec
